@@ -1,0 +1,6 @@
+{
+  "name": "Mastermind Kawaii",
+  "description": "Un délicieux jeu de Mastermind coloré et kawaii pour jouer en solo ou à deux sur le même écran !",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

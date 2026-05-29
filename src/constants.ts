@@ -1,0 +1,106 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import { AnimalPeg } from './types';
+
+export const ANIMAL_PEGS: AnimalPeg[] = [
+  {
+    id: 'bunny',
+    emoji: '🐰',
+    name: 'Lapi',
+    fullName: 'Lapi le Lapinou',
+    colorClass: 'bg-pink-100 hover:bg-pink-200 border-2 border-pink-300 shadow-pink-100/50',
+    activeColorClass: 'ring-4 ring-pink-400 bg-pink-200 border-pink-400',
+    badgeColorClass: 'bg-pink-200 text-pink-800',
+    textClass: 'text-pink-600',
+    pastelHex: '#FFC0CB',
+  },
+  {
+    id: 'kitty',
+    emoji: '🐱',
+    name: 'Minou',
+    fullName: 'Minou le Chaton',
+    colorClass: 'bg-amber-100 hover:bg-amber-200 border-2 border-amber-300 shadow-amber-100/50',
+    activeColorClass: 'ring-4 ring-amber-400 bg-amber-200 border-amber-400',
+    badgeColorClass: 'bg-amber-200 text-amber-800',
+    textClass: 'text-amber-600',
+    pastelHex: '#FFE4B5',
+  },
+  {
+    id: 'bear',
+    emoji: '🐻',
+    name: 'Ourson',
+    fullName: 'Nounours Mint',
+    colorClass: 'bg-emerald-100 hover:bg-emerald-200 border-2 border-emerald-300 shadow-emerald-100/50',
+    activeColorClass: 'ring-4 ring-emerald-400 bg-emerald-200 border-emerald-400',
+    badgeColorClass: 'bg-emerald-200 text-emerald-800',
+    textClass: 'text-emerald-600',
+    pastelHex: '#A3E4D7',
+  },
+  {
+    id: 'frog',
+    emoji: '🐸',
+    name: 'Kéro',
+    fullName: 'Kéro la Grenouille',
+    colorClass: 'bg-teal-100 hover:bg-teal-200 border-2 border-teal-300 shadow-teal-100/50',
+    activeColorClass: 'ring-4 ring-teal-400 bg-teal-200 border-teal-400',
+    badgeColorClass: 'bg-teal-200 text-teal-800',
+    textClass: 'text-teal-600',
+    pastelHex: '#76D7C4',
+  },
+  {
+    id: 'chick',
+    emoji: '🐥',
+    name: 'Pio',
+    fullName: 'Pio le Poussin',
+    colorClass: 'bg-yellow-100 hover:bg-yellow-200 border-2 border-yellow-300 shadow-yellow-100/50',
+    activeColorClass: 'ring-4 ring-yellow-400 bg-yellow-200 border-yellow-400',
+    badgeColorClass: 'bg-yellow-200 text-yellow-800',
+    textClass: 'text-yellow-600',
+    pastelHex: '#FCF3CF',
+  },
+  {
+    id: 'panda',
+    emoji: '🐼',
+    name: 'Pandi',
+    fullName: 'Pandi le Panda',
+    colorClass: 'bg-slate-100 hover:bg-slate-200 border-2 border-slate-300 shadow-slate-100/50',
+    activeColorClass: 'ring-4 ring-slate-400 bg-slate-200 border-slate-400',
+    badgeColorClass: 'bg-slate-200 text-slate-800',
+    textClass: 'text-slate-600',
+    pastelHex: '#E2E8F0',
+  },
+  {
+    id: 'unicorn',
+    emoji: '🦄',
+    name: 'Lili',
+    fullName: 'Lili la Licorne',
+    colorClass: 'bg-purple-100 hover:bg-purple-200 border-2 border-purple-300 shadow-purple-100/50',
+    activeColorClass: 'ring-4 ring-purple-400 bg-purple-200 border-purple-400',
+    badgeColorClass: 'bg-purple-200 text-purple-800',
+    textClass: 'text-purple-600',
+    pastelHex: '#D7BDE2',
+  },
+  {
+    id: 'fox',
+    emoji: '🦊',
+    name: 'Rox',
+    fullName: 'Rox le Renardeau',
+    colorClass: 'bg-orange-100 hover:bg-orange-200 border-2 border-orange-300 shadow-orange-100/50',
+    activeColorClass: 'ring-4 ring-orange-400 bg-orange-200 border-orange-400',
+    badgeColorClass: 'bg-orange-200 text-orange-800',
+    textClass: 'text-orange-600',
+    pastelHex: '#EDBB99',
+  },
+];
+
+export const CPU_EXPRESSIONS: Record<string, string> = {
+  happy: 'OwO ¡Génial! Tu es formidable! ✨',
+  thinking: '🤔 Hmmm... Laisse moi réfléchir... Quelle jolie combinaison ! 🌸',
+  shocked: '😱 Han! Tu as trouvé un de mes secrets ? Ouah ! ✨',
+  sad: '╥﹏╥ Oh non, ne t\'inquiète pas, tu feras encore mieux la prochaine fois ! 💖',
+  victory: '🎉 Félicitations, tu as résolu le mystère ! Tu mérites un cookie ! 🍪',
+  wave: '👋 Coucou ! Je suis Momo le Hamster, ton guide de jeu ultra kawaii ! 💕',
+};
