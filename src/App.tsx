@@ -18,6 +18,7 @@ import CodeSetter from './components/CodeSetter';
 import GameBoard from './components/GameBoard';
 import RoundSummary from './components/RoundSummary';
 import MagicWheel, { WheelOption } from './components/MagicWheel';
+import CelebrationCanvas from './components/CelebrationCanvas';
 
 export default function App() {
   // Common configurations
@@ -316,8 +317,9 @@ export default function App() {
         };
         setGuessesP1(updatedGuesses);
         if (isWin) {
-          nextP1Solved = currentRoundNumber;
           setP1SolvedRound(currentRoundNumber);
+          finalizeDuoMatch(currentRoundNumber, null);
+          return;
         }
 
         // Who plays next? P2 of this round?
@@ -325,10 +327,8 @@ export default function App() {
         if (isP2EligibleThisRound) {
           setActivePlayer('P2');
           setMascotSpeech({
-            expression: isWin ? 'victory' : 'thinking',
-            text: isWin
-              ? `Magique ! ${player1Name} a déchiffré la formule secrète de ${player2Name} ! 🌟 À ton tour, ${player2Name}, sauras-tu en faire de même ?`
-              : `Proposition de ${player1Name} validée ! À ton tour, ${player2Name}, décode sa formule secrète ! 🐾🐹`,
+            expression: 'thinking',
+            text: `Proposition de ${player1Name} validée ! À ton tour, ${player2Name}, décode sa formule secrète ! 🐾🐹`,
           });
         } else {
           // P2 is solved or out of attempts. Can we advance to the next round index?
@@ -367,8 +367,9 @@ export default function App() {
         };
         setGuessesP2(updatedGuesses);
         if (isWin) {
-          nextP2Solved = currentRoundNumber;
           setP2SolvedRound(currentRoundNumber);
+          finalizeDuoMatch(null, currentRoundNumber);
+          return;
         }
 
         // Round ends! Evaluate eligibility for next round
@@ -1333,17 +1334,20 @@ export default function App() {
 
       {/* ROUND END MODAL COMPLETE SUMMARY */}
       {status === 'round_completed' && (
-        <RoundSummary
-          winner={roundWinner}
-          playType={playType}
-          creatorName={player1Name}
-          decoderName={player2Name}
-          secretCode={playType === 'solo' ? soloSecretCode : (roundWinner === 'creator' ? secretCodeP2 : secretCodeP1)}
-          attempts={playType === 'solo' ? soloCurrentGuessIndex + 1 : currentRoundNumber + 1}
-          scores={scores}
-          onNextRound={handleNextRound}
-          onResetGame={handleResetGame}
-        />
+        <>
+          <CelebrationCanvas active={roundWinner !== 'solo_cpu' && roundWinner !== 'none' && roundWinner !== null} />
+          <RoundSummary
+            winner={roundWinner}
+            playType={playType}
+            creatorName={player1Name}
+            decoderName={player2Name}
+            secretCode={playType === 'solo' ? soloSecretCode : (roundWinner === 'creator' ? secretCodeP2 : secretCodeP1)}
+            attempts={playType === 'solo' ? soloCurrentGuessIndex + 1 : currentRoundNumber + 1}
+            scores={scores}
+            onNextRound={handleNextRound}
+            onResetGame={handleResetGame}
+          />
+        </>
       )}
 
       {/* RoundCompleted Custom extension to reveal BOTH codes for DUO modes! */}
